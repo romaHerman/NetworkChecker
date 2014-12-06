@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6CBD8E93-589B-47FB-A3B1-E67FBB76A432</string>
+	<key>IDESourceControlProjectName</key>
+	<string>NetworkChecker</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>53BD4CE1CDFD3FAE4D8882F458A9B715A57BBD8E</key>
+		<string>https://github.com/romaHerman/NetworkChecker.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>NetworkChecker/NetworkChecker.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>53BD4CE1CDFD3FAE4D8882F458A9B715A57BBD8E</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/romaHerman/NetworkChecker.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>53BD4CE1CDFD3FAE4D8882F458A9B715A57BBD8E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>53BD4CE1CDFD3FAE4D8882F458A9B715A57BBD8E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>NetworkChecker</string>
+		</dict>
+	</array>
+</dict>
+</plist>
