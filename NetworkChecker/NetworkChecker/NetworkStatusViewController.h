@@ -10,4 +10,6 @@
 
 @interface NetworkStatusViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *serverAddressTextFiled;
+
 @end

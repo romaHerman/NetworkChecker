@@ -8,11 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class RLMResults;
+
 @interface NetworkStatusManager : NSObject
 
 @property(nonatomic, strong) NSString *serverUrl;
 
 - (void)setNetworkStatusBlock:(void(^)(NSString *status))networkStatus;
 - (void)sendRecentStatuses;
+
+- (RLMResults *)recentStatusesAscending;
 
 @end

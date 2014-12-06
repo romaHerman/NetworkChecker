@@ -12,7 +12,6 @@
 		1D6BB91F1A32E70300535A15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D6BB91D1A32E70300535A15 /* Main.storyboard */; };
 		1D6BB9211A32E70300535A15 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D6BB9201A32E70300535A15 /* Images.xcassets */; };
 		1D6BB9241A32E70300535A15 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D6BB9221A32E70300535A15 /* LaunchScreen.xib */; };
-		1D6BB9301A32E70300535A15 /* NetworkCheckerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6BB92F1A32E70300535A15 /* NetworkCheckerTests.m */; };
 		1D6BB94D1A32E72100535A15 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6BB93B1A32E72100535A15 /* AFHTTPRequestOperation.m */; };
 		1D6BB94E1A32E72100535A15 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6BB93D1A32E72100535A15 /* AFHTTPRequestOperationManager.m */; };
 		1D6BB94F1A32E72100535A15 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6BB93F1A32E72100535A15 /* AFHTTPSessionManager.m */; };
@@ -36,6 +35,10 @@
 		1D6BB97C1A32FBC600535A15 /* NetworkStatusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6BB97B1A32FBC600535A15 /* NetworkStatusManager.m */; };
 		1D6BB9801A33125700535A15 /* NetworkStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6BB97F1A33125700535A15 /* NetworkStatus.m */; };
 		1D6BB9821A3314D700535A15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6BB9811A3314D700535A15 /* Foundation.framework */; };
+		1D6BB9861A332CA300535A15 /* NetworkStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6BB9761A32E98700535A15 /* NetworkStatusViewController.m */; };
+		1D6BB98A1A33326300535A15 /* StatusOrderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6BB9891A33326300535A15 /* StatusOrderTest.m */; };
+		1D6BB98B1A33326E00535A15 /* NetworkStatusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6BB97B1A32FBC600535A15 /* NetworkStatusManager.m */; };
+		1D6BB98C1A33327B00535A15 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6BB9701A32E7CA00535A15 /* Realm.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +62,6 @@
 		1D6BB9231A32E70300535A15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		1D6BB9291A32E70300535A15 /* NetworkCheckerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkCheckerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D6BB92E1A32E70300535A15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1D6BB92F1A32E70300535A15 /* NetworkCheckerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkCheckerTests.m; sourceTree = "<group>"; };
 		1D6BB93A1A32E72100535A15 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		1D6BB93B1A32E72100535A15 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		1D6BB93C1A32E72100535A15 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		1D6BB97E1A33125700535A15 /* NetworkStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkStatus.h; sourceTree = "<group>"; };
 		1D6BB97F1A33125700535A15 /* NetworkStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkStatus.m; sourceTree = "<group>"; };
 		1D6BB9811A3314D700535A15 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D6BB9891A33326300535A15 /* StatusOrderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusOrderTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D6BB98C1A33327B00535A15 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,8 +180,8 @@
 		1D6BB92C1A32E70300535A15 /* NetworkCheckerTests */ = {
 			isa = PBXGroup;
 			children = (
-				1D6BB92F1A32E70300535A15 /* NetworkCheckerTests.m */,
 				1D6BB92D1A32E70300535A15 /* Supporting Files */,
+				1D6BB9891A33326300535A15 /* StatusOrderTest.m */,
 			);
 			path = NetworkCheckerTests;
 			sourceTree = "<group>";
@@ -415,7 +419,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D6BB9301A32E70300535A15 /* NetworkCheckerTests.m in Sources */,
+				1D6BB98A1A33326300535A15 /* StatusOrderTest.m in Sources */,
+				1D6BB98B1A33326E00535A15 /* NetworkStatusManager.m in Sources */,
+				1D6BB9861A332CA300535A15 /* NetworkStatusViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,6 +568,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/NetworkChecker",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -581,6 +588,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/NetworkChecker",
 				);
 				INFOPLIST_FILE = NetworkCheckerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

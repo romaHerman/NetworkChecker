@@ -45,6 +45,7 @@
                     </view>
                     <connections>
                         <outlet property="networkStatusLabel" destination="dhg-rL-jUu" id="vKN-Od-W8T"/>
+                        <outlet property="serverAddressTextFiled" destination="tTg-Un-Hvt" id="C2h-9U-2Ur"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

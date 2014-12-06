@@ -84,7 +84,7 @@ static NSString *const DeviceIDKey = @"Unique_id";
 
 - (void)sendRecentStatuses {
   // get all network statuses arranged by date from old to the most recent
-  RLMResults *recentStatuses = [[NetworkStatus allObjects] sortedResultsUsingProperty:@"statusDate" ascending:YES];
+  RLMResults *recentStatuses = [self recentStatusesAscending];
   //iterate through all statuses and send them to the remote server
   for (NetworkStatus *networkStatus in recentStatuses) {
     [self sendStatus:networkStatus complition:^{
@@ -92,6 +92,10 @@ static NSString *const DeviceIDKey = @"Unique_id";
       [self deleteStatus:networkStatus];
     }];
   }
+}
+
+- (RLMResults *)recentStatusesAscending {
+  return [[NetworkStatus allObjects] sortedResultsUsingProperty:@"statusDate" ascending:YES];
 }
 
 #pragma mark - Request operations
