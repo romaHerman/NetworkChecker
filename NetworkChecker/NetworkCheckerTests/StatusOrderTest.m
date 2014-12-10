@@ -38,13 +38,15 @@
   
   NetworkStatusManager *manager = [[NetworkStatusManager alloc] init];
   RLMResults *statuses = [manager recentStatusesAscending];
-  
+
   NetworkStatus *statusAtFirstIndex = statuses.firstObject;
   NetworkStatus *statusAtLastIndex = statuses.lastObject;
   
   BOOL isAscending = NO;
-  
-  if ([statusAtFirstIndex.statusDate compare:statusAtLastIndex.statusDate] == NSOrderedAscending) {
+  // chech order it should be ascending or same (same means we have only 1 status and first and last
+  // is the same object
+  if ([statusAtFirstIndex.statusDate compare:statusAtLastIndex.statusDate] == NSOrderedAscending ||
+      [statusAtFirstIndex.statusDate compare:statusAtLastIndex.statusDate] == NSOrderedSame) {
     isAscending = YES;
   }
 

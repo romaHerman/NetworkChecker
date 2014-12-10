@@ -75,7 +75,7 @@ static NSString *const DeviceIDKey = @"Unique_id";
 
 - (void)deleteStatus:(NetworkStatus *)status {
   //getting acces to Realm DB
-  RLMRealm *realm = [RLMRealm defaultRealm];
+  RLMRealm *realm = status.realm;//[RLMRealm defaultRealm];
   //delelte status asyncronously
   [realm transactionWithBlock:^{
     [realm deleteObject:status];
@@ -83,14 +83,37 @@ static NSString *const DeviceIDKey = @"Unique_id";
 }
 
 - (void)sendRecentStatuses {
-  // get all network statuses arranged by date from old to the most recent
-  RLMResults *recentStatuses = [self recentStatusesAscending];
-  //iterate through all statuses and send them to the remote server
-  for (NetworkStatus *networkStatus in recentStatuses) {
-    [self sendStatus:networkStatus complition:^{
-      //sent successfully => can delete this status from local storage
-      [self deleteStatus:networkStatus];
-    }];
+ //create background queue to send statuses 
+  dispatch_queue_t sendStatusQueue = dispatch_queue_create("com.networkChecker.sendStatusesQueue", NULL);
+  dispatch_async(sendStatusQueue, ^{
+    // get all network statuses arranged by date from old to the most recent
+    RLMResults *recentStatuses = [self recentStatusesAscending];
+    NSMutableArray *sentStatuses = [[NSMutableArray alloc] init];
+    //iterate through all statuses and send them to the remote server
+    for (NetworkStatus *networkStatus in recentStatuses) {
+      dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+      [self sendStatus:networkStatus complition:^(BOOL success) {
+        
+        if (success) {
+          //sent successfully => add current status to sentStatuses array
+          [sentStatuses addObject:networkStatus];
+        } else {
+          //need to stop sending statuses to prevent order misplacing
+          return;
+        }
+        
+        dispatch_semaphore_signal(sema);
+      }];
+      dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+    }
+    // delete all sent statuses
+    [self deleteSentStatuses:sentStatuses];
+  });
+}
+
+- (void)deleteSentStatuses:(NSArray *)sentStatuses {
+  for (NetworkStatus *status in sentStatuses) {
+    [self deleteStatus:status];
   }
 }
 
@@ -100,7 +123,7 @@ static NSString *const DeviceIDKey = @"Unique_id";
 
 #pragma mark - Request operations
 
-- (void)sendStatus:(NetworkStatus *)status complition:(void(^)())sent {
+- (void)sendStatus:(NetworkStatus *)status complition:(void(^)(BOOL success))sent {
   if (!self.serverUrl) {
     return;
   }
@@ -113,12 +136,16 @@ static NSString *const DeviceIDKey = @"Unique_id";
                                TypeKey     : status.statusType};
   //send status to remote server
   [manager GET:self.serverUrl parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    BOOL success = NO;
     NSInteger statusCode = operation.response.statusCode;
     if (statusCode == 200) {
-      //invoke complition block
-      sent();
+      NSLog(@"succeded");
+      success = YES;
     }
+    sent(success);
   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    NSLog(@"failure");
+    sent(NO);
   }];
 }
 
